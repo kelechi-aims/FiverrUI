@@ -1,7 +1,7 @@
 .navbar{
     display: flex;
     flex-direction: column;
-    color: #62646a;
+    color: #1c1d1d;
     transition: 0.5s all ease;
     position: sticky;
     top: 0;
@@ -24,6 +24,7 @@
         padding: 0px;
         cursor: pointer;
           .text{
+            letter-spacing: -2px;
 
           }
           .dot{
@@ -75,6 +76,7 @@
           span{
             white-space: nowrap;
             font-size: 16px;
+            color: gray;
           }
           .join {
             color: #1dbf73;
@@ -264,6 +266,7 @@
       scroll-behavior: smooth;
       text-align: left;
       padding: 0px 32px;
+      width: 100%;
       
       .menu{
         position: relative;
@@ -271,26 +274,40 @@
         justify-content: space-between;
         padding: 10px 0px;
         gap: 20px;
-        font-weight: 500;
+        font-size: 16px;
+        font-weight: normal;
         color: gray; 
         transition: color 0.3s ease;
         font-family: 'Macan', san-serif;
+        width: 100%;
 
-        .carousel-root {
-          position: static;
+        .category-carousel {
+          width: 100%;
 
-          .control-prev {
-            width: 50px;
-            height: 50px;
-            background-color: rgb(243, 243, 243);
-            border-radius: 50%;
+          .swiper-button-prev {
             position: absolute;
-            // left: -25px;
+            color: #0a0a0a;
+            cursor: pointer;
+            left: 0;
           }
-
-          .carousel-item.active {
-            display:block;
+          
+          .swiper-button-next {
+            color: #0a0a0a;
+            cursor: pointer;
+            position: absolute;
+            right: 0;
+            border-radius: 50%;
+            background-color: transparent;
+          }
+       
+          .swiper-slide {
+            width: auto !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
         }
+      
           .innermenu:hover {
           color: #1dbf73;
         }
@@ -314,20 +331,10 @@
           right: 0;
           bottom: 0;
           height: 2px;
-          width: 80%;
+          width: 100%;
           background-color: #00b22d;
           transform: translateX(-50%) scaleX(0);
-          transition: transform 0.3s ease;
-        }
-
-        .control-next {
-          width: 50px;
-          height: 50px;
-          background-color: red;
-          // border-radius: 50%;
-          position: absolute;
-          right: 60px;
-        }
+          transition: transform 0.3s ease;        
         }
         
       }

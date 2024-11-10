@@ -3,7 +3,18 @@ import "./Navbar.scss";
 import { FaBell, FaEnvelope, FaHeart, FaSearch, FaChevronUp, FaChevronDown } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from 'react-responsive-carousel';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/scss';
+import { Navigation } from "swiper/modules";
+import 'swiper/scss/navigation';
+
+// Define the categories
+const categories = [
+  "Graphics & Design", "Programming & Tech", "Digital Marketing",
+  "Video & Animation", "Writing & Translation", "Music & Audio",
+  "Business", "Finance", "AI Services", "Personal Growth",
+  "Consulting", "Photography"
+];
 
 const Navbar = () => {
 
@@ -13,6 +24,27 @@ const Navbar = () => {
   const scrollContainerRef = useRef(null);
   const [isExplore, setIsExplore] = useState(false);
   const [isFiverr, setIsFiverr] = useState(false);
+  // const [showPrev, setShowPrev] = useState(false);
+  // const [showNext, setShowNext] = useState(true);
+
+  const handleSlideChange = (swiper) => {
+     // Show prev button if we're past the first slide
+     const setShowPrev = swiper.navigation.prevEl;
+     const setShowNext = swiper.navigation.nextEl;
+     if (swiper.isBeginning) {
+      setShowPrev.style.display = 'none';
+     }
+     if (swiper.activeIndex > 0) {
+      setShowPrev.style.display = 'block';
+     }
+
+     if (swiper.isEnd) {
+      setShowNext.style.display = 'none';
+     }
+     if (swiper.activeIndex < swiper.slides.length - 1) {
+      setShowNext.style.display = 'block';
+     }
+   }
 
   // Toggle function explore
   const toggleExplore = () => {
@@ -207,35 +239,29 @@ const Navbar = () => {
                 <div className="topmenu">
                 <>
                 <div className="menu">
-                <Carousel
-                  showThumbs={false}
-                  showIndicators={false}
-                  showStatus={false}
-                  centerMode
-                  centerSlidePercentage={12}
-                  swipeable
-                  emulateTouch
-                  showArrows
-                  
-                >
-                  
-                    <div><Link className="link innermenu" to="/">Graphics & Design</Link></div>
-                    <div><Link className="link innermenu" to="/">Programming & Tech</Link></div>
-                    <div><Link className="link innermenu" to="/">Digital Marketing</Link></div>
-                    <div><Link className="link innermenu" to="/">Video & Animation</Link></div>
-                    <div><Link className="link innermenu" to="/">Writing & Translation</Link></div>
-                    <div><Link className="link innermenu" to="/">Music & Audio</Link></div>
-                    <div><Link className="link innermenu" to="/">Business</Link></div>
-                    <div><Link className="link innermenu" to="/">Finance</Link></div>
-                    <div><Link className="link innermenu" to="/">AI Services</Link></div>
-                    <div><Link className="link innermenu" to="/">Personal Growth</Link></div>
-                    <div><Link className="link innermenu" to="/">Consulting</Link></div>
-                    <div><Link className="link innermenu" to="/">Photography</Link></div>
-                  
-                </Carousel>
+                  <Swiper
+                    modules={[Navigation]} // Import the Navigation module
+                    slidesPerView={9} // Number of items view
+                    spaceBetween={29} // Space between items
+                    slidesPerGroup={9} // Number of items per group
+                    className="category-carousel"
+                    navigation = {{
+                      prevEl: '.swiper-button-prev',
+                      nextEl: '.swiper-button-next',
+                    }}// Enable navigation arrows
+                    onSlideChange={handleSlideChange}
+                  >
+                    {categories.map((category, index) => (
+                      <SwiperSlide key={index}>
+                        <Link className="link innermenu" to="/">{category}</Link>
+                      </SwiperSlide>
+                    ))}
+                     <div className="swiper-button-prev"></div>
+                     <div className="swiper-button-next"></div>
+                  </Swiper>
                 </div>
                 </>
-                </div>  
+                </div>
               )}
             </div>
                 
