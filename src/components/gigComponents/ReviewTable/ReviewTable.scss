@@ -1,0 +1,92 @@
+.reviews {
+    .title {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 16px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 12px;
+        display: flex;
+        justify-content: space-between;
+
+        span {
+            .star {
+                padding-left: 4px;
+            }
+            span {}
+        }
+    }
+
+    .ratings {
+        display: flex;
+        justify-content: space-between;
+
+        .left {
+
+            table {
+
+                .btn {
+                    font-size: 16px;
+                    font-weight: 600;
+                    padding: 6px;
+                    border-radius: 5px;
+                    border: none;
+                    background-color: white;
+
+                    &:hover {
+                        background-color: #EEF0EB;
+                    }
+                }
+
+                .progress-bar {
+                    width: 212.5px;
+                    background-color: #e4e5e7;
+                    height: 8px;
+                    border-radius: 5px;
+                    overflow: hidden;
+                    margin-right: 10px;
+
+                    .filled-bar {
+                        height: 100%;
+                        background-color: #222325;
+                        transition: width 0.3s ease;
+                    }
+                }
+            }
+
+        }
+        
+        .right {
+            h4 {
+                font-size: 16px;
+                font-weight: 600;
+                padding: 6px 0 16px 0;   
+            }
+
+            .rating-details {
+                
+                ul {
+                    list-style-type: none;
+
+                    li {
+                        display: flex;
+                        align-items: center;
+                        gap: 60px;
+                        justify-content: space-between;
+                        padding-bottom: 15px;
+
+                        .desc {
+                            color: #95979d;
+                        }
+                        span {
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -9,7 +9,7 @@ const SubCategory = () => {
     <div className="subCategory">
       <div className="category">
       <div className="menu">
-        <Link className="link">
+        <Link className="link" to="categories/programming-tech?source={}">
           <div className="image">
             <img src="/images/programming-tech-thin.56382a2.svg" alt="programming-tech" />
           </div>
@@ -17,7 +17,7 @@ const SubCategory = () => {
         </Link>
       </div>
       <div className="menu">
-        <Link className="link">
+        <Link className="link" to="categories/graphics-design?source={}">
           <div className="image">
             <img src="/images/graphics-design-thin.ff38893.svg" alt="graphic-design" />
           </div>
@@ -25,7 +25,7 @@ const SubCategory = () => {
         </Link>
       </div>
       <div className="menu">
-        <Link className="link">
+        <Link className="link" to="categories/digital-marketing?source={}">
           <div className="image">
             <img src="/images/digital-marketing-thin.68edb44.svg" alt="digital-marketing" />
           </div>
@@ -33,7 +33,7 @@ const SubCategory = () => {
         </Link>
       </div>
       <div className="menu">
-        <Link className="link">
+        <Link className="link" to="categories/writing-translation?source={}">
           <div className="image">
             <img src="/images/writing-translation-thin.fd3699b.svg" alt="writing-translation" />
           </div>
@@ -41,7 +41,7 @@ const SubCategory = () => {
         </Link>
       </div>
       <div className="menu">
-        <Link className="link">
+        <Link className="link" to="categories/video-animation?source={}">
           <div className="image">
             <img src="/images/video-animation-thin.9d3f24d.svg" alt="video-animation" />
           </div>
@@ -49,7 +49,7 @@ const SubCategory = () => {
         </Link>
       </div>
       <div className="menu">
-        <Link className="link">
+        <Link className="link" to="categories/ai-services?source={}">
           <div className="image">
             <img src="/images/ai-services-thin.104f389.svg" alt="ai-services" />
           </div>
@@ -57,7 +57,7 @@ const SubCategory = () => {
         </Link>
       </div>
       <div className="menu">
-        <Link className="link">
+        <Link className="link" to="categories/music-audio?source={}">
           <div className="image">
             <img src="/images/music-audio-thin.43a9801.svg" alt="music-audio" />
           </div>
@@ -66,7 +66,7 @@ const SubCategory = () => {
         </Link>
       </div>
       <div className="menu">
-        <Link className="link">
+        <Link className="link" to="categories/business?source={}">
           <div className="image">
             <img src="/images/business-thin.885e68e.svg" alt="business" />
           </div>
@@ -75,7 +75,7 @@ const SubCategory = () => {
         </Link>
       </div>
       <div className="menu">
-        <Link className="link">
+        <Link className="link" to="categories/consulting?source={}">
           <div className="image">
             <img src="/images/consulting-thin.d5547ff.svg" alt="consulting" />
           </div>

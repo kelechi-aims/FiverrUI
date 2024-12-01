@@ -1,0 +1,55 @@
+.recommended {
+    background-color: #fafafa;
+    padding: 32px 32px;
+    margin-bottom: 64px;
+    margin-top: 64px;
+
+    h2 {
+        font-size: 24px;
+        padding-bottom: 24px;
+    }
+
+    .options {
+
+    }
+}
+
+.more-service-title {
+    font-size: 24px;
+    padding-bottom: 24px;
+    
+}
+
+.other-websites {
+    display: flex;
+    justify-content: space-between;
+
+    .websites {
+        border: 1px solid #dadbdd;
+        border: 4px;
+        box-shadow: #00000005 0px 1.2px 1.92251px 0px, #0000000A 0px 2px 3.68135px 0px, #0000000D 0px 1px 5px 0px;
+        margin-bottom: 20px;
+        color: #62646A;
+        padding: 12px 16px;
+        width: 305px;
+        
+        .other-website-link {
+            cursor: pointer;
+            font-size: 14px;
+            text-align: left;
+            transition: color 0.2s;
+            
+            p {
+                font-weight: 700;
+                font-size: 16px;
+                margin-bottom: 3px;
+
+                &:hover {
+                    color: #446ee7
+                }
+    
+            }
+        }
+    }
+}
+

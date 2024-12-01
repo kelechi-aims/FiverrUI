@@ -4,6 +4,7 @@ import { FaBell, FaEnvelope, FaHeart, FaSearch, FaChevronUp, FaChevronDown } fro
 import { Link, useLocation } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { IoGlobeOutline } from "react-icons/io5";
 import 'swiper/scss';
 import { Navigation } from "swiper/modules";
 import 'swiper/scss/navigation';
@@ -24,8 +25,14 @@ const Navbar = () => {
   const scrollContainerRef = useRef(null);
   const [isExplore, setIsExplore] = useState(false);
   const [isFiverr, setIsFiverr] = useState(false);
-  // const [showPrev, setShowPrev] = useState(false);
-  // const [showNext, setShowNext] = useState(true);
+  const exploreRef = useRef(null);
+  const fiverrRef = useRef(null);
+  const [search, setSearch] = useState(false);
+
+  const isSearch = () => {
+    window.scrollY > 300 ? setSearch(true) : setSearch(false);
+  }
+  
 
   const handleSlideChange = (swiper) => {
      // Show prev button if we're past the first slide
@@ -49,12 +56,36 @@ const Navbar = () => {
   // Toggle function explore
   const toggleExplore = () => {
     setIsExplore(!isExplore);
+    setIsFiverr(false)
   };
 
   // Toggle function for fiverr pro
   const toggleFiverr = () => {
     setIsFiverr(!isFiverr);
+    setIsExplore(false)
   };
+
+   // Detect clicks outside of dropdowns to close them
+   const handleClickOutside = (event) => {
+    if (
+      exploreRef.current && !exploreRef.current.contains(event.target)
+    ) {
+      setIsExplore(false);
+    }
+    if (
+      fiverrRef.current && !fiverrRef.current.contains(event.target)
+    ) {
+      setIsFiverr(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
 
   const handleScroll = () => {
     if (scrollContainerRef.current) {
@@ -65,7 +96,7 @@ const Navbar = () => {
   };
 
   const isActive = () => {
-    window.scrollY > 0 ? setActive(true) : setActive(false);
+    window.scrollY > 700 ? setActive(true) : setActive(false);
   };
 
   useEffect(() => {
@@ -88,15 +119,23 @@ const Navbar = () => {
     };
   },[]);
 
+  useEffect(() => {
+    window.addEventListener("scroll", isSearch)
+    // Cleaner function
+    return () => {
+      window.removeEventListener("scroll", isSearch);
+    };
+  },[])
+
   const currentUser = {
     id: 1,
     username: "John Doe",
-    registered: false,
+    registered: true,
     isSeller: true
   }
 
     return (
-        <div className={active || pathname !=="/" ? "navbar active" : "navbar"}>
+        <div className={active || pathname !=="/" ? "navbar active search" : "navbar"}>
           <div className="header">
           <div className="container">
             <div className="logo">
@@ -105,7 +144,7 @@ const Navbar = () => {
               </Link>
               <span className="dot">.</span>
             </div>
-            {(currentUser || active) && (
+            {(search || pathname !=="/") && (
               <div className="search-bar">
                 <input className="search-input"
                   type="search" 
@@ -119,9 +158,9 @@ const Navbar = () => {
               {currentUser?.registered ? (
                 <>
                 <FaBell />
-                <FaEnvelope />
+                <Link to="/messages" className="link"><FaEnvelope /></Link>
                 <FaHeart />
-                <span>Orders</span>
+                <Link to="/orders" className="link"><span>Orders</span></Link>
                 <div className="user" onClick={()=>setOpen(!open)}>
                   <img src="https://images.pexels.com/photos/27919253/pexels-photo-27919253/free-photo-of-red-glitter-frames-a-striking-accent-for-the-model.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
                   <span>{currentUser?.username}</span>
@@ -130,8 +169,8 @@ const Navbar = () => {
                   {
                     currentUser?.isSeller && (
                       <>
-                        <span className="item">Gigs</span>
-                        <span className="item">Add New Gig</span>                    
+                        <Link className="link" to="/gigs"><span className="item">Gigs</span></Link>
+                        <Link className="link" to="/add"><span className="item">Add New Gig</span></Link>                    
                       </>
                     )
                   }
@@ -160,7 +199,7 @@ const Navbar = () => {
                 </>
               ) : (
                 <>
-                <button className="dropdown-button" onClick={toggleFiverr}>
+                <button ref={fiverrRef} className="dropdown-button" onClick={toggleFiverr}>
                   Fiverr Pro
                 {isFiverr ? <FaChevronUp /> : <FaChevronDown />}
                 </button>
@@ -184,7 +223,7 @@ const Navbar = () => {
                     </div>
                   </div>
                 )}
-                <button className="dropdown-button" onClick={toggleExplore}>
+                <button ref={exploreRef} className="dropdown-button" onClick={toggleExplore}>
                   Explore
                 {isExplore ? <FaChevronUp /> : <FaChevronDown />}
                 </button>
@@ -225,7 +264,7 @@ const Navbar = () => {
 
                   </div>
                 )}
-                <span>English</span>
+                <div className="lang"><IoGlobeOutline className="globe"/><span>English</span></div>
                 <span>Become a Seller</span>
                 <span>Sign in</span>
                 <button className="join">Join</button>

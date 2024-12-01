@@ -7,11 +7,12 @@
     top: 0;
     z-index: 999;
     border-bottom: 1px solid gray;
+    background-color: white;
 
 
-    &.active{
-      background-color: white;
-    }
+    // &.active{
+    //   background-color: white;
+    // }
     
     .container{
       display: flex;
@@ -73,10 +74,25 @@
         font-size: 20px;
         font-family: 'Macan', san-serif;
 
+        .lang {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          .globe {
+            height: 17px;
+          }
+          &:hover {
+            color: #1dbf73;
+          }
+        }
+
           span{
             white-space: nowrap;
             font-size: 16px;
             color: gray;
+            &:hover {
+              color: #1dbf73;
+            }
           }
           .join {
             color: #1dbf73;
@@ -272,7 +288,7 @@
         position: relative;
         display: flex;
         justify-content: space-between;
-        padding: 10px 0px;
+        padding: 0px 0px;
         gap: 20px;
         font-size: 16px;
         font-weight: normal;
@@ -302,15 +318,13 @@
        
           .swiper-slide {
             width: auto !important;
+            height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
           }
         }
       
-          .innermenu:hover {
-          color: #1dbf73;
-        }
 
         .innermenu:hover::after {
           content: "";
@@ -327,13 +341,13 @@
         .innermenu::after {
           content: "";
           position: absolute;
-          left: 140px;
+          left: 0;
           right: 0;
-          bottom: 0;
+          bottom: -6px;
           height: 2px;
           width: 100%;
           background-color: #00b22d;
-          transform: translateX(-50%) scaleX(0);
+          transform: scaleX(0);
           transition: transform 0.3s ease;        
         }
         

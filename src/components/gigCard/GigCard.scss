@@ -1,0 +1,114 @@
+.gigs-link {
+    position: relative;
+    margin-bottom: 20px;
+    z-index: -1;
+    .gigcard {
+        height: 334px;
+        width: 288px;
+        position: relative;
+        // border: 1px solid rgb(228, 228, 228);
+        // margin-bottom: 40px;
+        .gig-image {
+            position: relative;
+            width: 287px;
+            height: 174px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            img {
+                object-fit: cover;
+                width: 286px;
+                height: 173px;
+                border-radius: 8px;
+            }
+            
+            .heart {
+                position: absolute;
+                color: white;
+                top: 5px;
+                right: 8px;
+            }
+        }
+        .author {
+            display: flex;
+            justify-content: space-between;
+            .author-profile {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 10px;
+                img {
+                    height: 24px;
+                    width: 24px;
+                    border-radius: 50%;
+        
+                }
+                .profile-link {
+                    color: black;
+    
+                    span {
+                        font-size: 14px;
+                        font-weight: 600;
+            
+                    }
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+            .qualification {
+                
+                p{
+                    font-weight: 600;
+    
+                }
+            }
+        }
+        p {
+            color: #404145;
+            margin-bottom: 10px;
+    
+        }
+        .star {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            img {
+                height: 14px;
+                width: 14px;
+                color: black;
+    
+            }
+            .star-avarage {
+                font-weight: 600;
+            }
+            span {
+                text-align: center;
+    
+            }
+        }
+        .price {
+            font-weight: 600;
+            margin-bottom: 10px;
+            span {
+    
+            }
+        }
+        .video {
+            font-size: 14px;
+            display: flex;
+            gap: 10px;
+            font-weight: 600;
+            color: #414045;
+            margin-bottom: 10px;
+            .video-video {
+    
+            }
+            span {
+                
+            }
+        }
+    
+    }
+}
