@@ -1,0 +1,51 @@
+.accordion {
+    padding: 20px 0 40px 0;
+    .menu {
+        padding-bottom: 20px;
+        border-bottom: 1px solid #dadbdd;
+        .accordion-header{
+            background-color: white;
+            font-size: 16px;
+            color: #444;
+            cursor: pointer;
+            padding: 20px 0 0 0;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            transition: background-color 0.4s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+    
+            &:hover {
+                // background-color: #ccc;
+            }
+    
+            .arrow {
+                margin-left: 10px; 
+            }
+    
+            .active  {
+                // background-color: #ccc;
+            }
+        }
+    
+        .accordion-body {
+            padding: 18px 0;
+            background-color: white;
+            overflow: hidden;
+            max-height: 0;
+            color: gray;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+    
+            p {
+                margin: 10px 0;
+            }
+    
+        }
+    }
+    .lastone {
+        border-bottom: none;
+    }
+}

@@ -1,0 +1,94 @@
+.sorting-bar {
+    display: flex;
+    color: #62646a;
+    justify-content: space-between;
+    .left {
+        display: flex;
+        align-items: center;
+
+    }
+    .right {
+        display: flex;
+        span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sort-dropdown {
+            position: relative;
+            .dropdown-bttn {
+                display: flex;
+                align-items: center;
+                width: fit-content;
+                padding: 1rem;
+                background-color: white;
+                border-radius: 0.5rem;
+                cursor: pointer;
+                border: none;
+                position: relative;
+                font-size: 16px;
+                font-weight: 700;
+    
+                &:hover {
+                    background-color: #efefef;
+                }
+                
+                .toggle-icon {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-left: 1rem;
+                }
+            }
+            .dropdown-content {
+                position: absolute;
+                min-width: fit-content;
+                display: flex;
+                flex-direction: column;
+                height: auto;
+                padding: 0.5rem;
+                right: 0;
+                left: 0;
+                margin-top: 0.5rem;
+                background-color: white;
+                border-radius: 0.5rem;
+                box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+                max-height: 40vh;
+                transform: translateY(-5%);
+                transition: transform 150ms ease-in-out, opacity 100ms ease-in-out;
+                pointer-events: none;
+                opacity: 0;
+    
+                .dropdownitem {
+                    display: flex;
+                    gap: 10px;
+                    font-size: 16px;
+                    text-wrap: nowrap;
+                    padding: 9px 16px;
+
+                    &:hover {
+                        background-color: #efefef;
+                        border-radius: 0.5rem;
+                    }
+                }
+            }
+                
+            .content-open {
+                opacity: 1;
+                transform: translateY(0);
+                pointer-events: all;
+                z-index: 999;
+            }    
+        }    
+    }
+}
+
+.gigscarddisplay {
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+}
