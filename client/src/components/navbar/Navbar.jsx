@@ -28,6 +28,7 @@ const Navbar = () => {
   const [isFiverr, setIsFiverr] = useState(false);
   const exploreRef = useRef(null);
   const fiverrRef = useRef(null);
+  const menuRef = useRef(null);
   const [search, setSearch] = useState(false);
   const [input, setInput] = useState("");
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
@@ -86,6 +87,11 @@ const Navbar = () => {
       fiverrRef.current && !fiverrRef.current.contains(event.target)
     ) {
       setIsFiverr(false);
+    }
+    if (
+      menuRef.current && !menuRef.current.contains(event.target)
+    ) {
+      setOpen(false);
     }
   };
 
@@ -180,7 +186,7 @@ const Navbar = () => {
                 <Link to="/messages" className="link"><FaEnvelope /></Link>
                 <FaHeart />
                 <Link to="/orders" className="link"><span>Orders</span></Link>
-                <div className="user" onClick={()=>setOpen(!open)}>
+                <div className="user" onClick={()=>setOpen(!open)} ref={menuRef}>
                   <img src={currentUser.img || "/images/noavatar.jpg"} alt="" />
                   <span>{currentUser?.username}</span>
                 
