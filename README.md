@@ -1,1 +1,1 @@
-This is a fiverr clone created with MERN stack
+This is a fiverr clone created with MERN stack.
